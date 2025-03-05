@@ -179,4 +179,7 @@ async def ishtirokchilarruyxati(msg: Message):
     pdf_path = await createPdfAllUser(alluser=allUsers) 
     pdf = FSInputFile(pdf_path)
     await msg.answer_document(document=pdf, caption="Ishtirokchilar ro'yxati")  
-    os.remove(pdf_path)
+    try:
+        os.remove(pdf_path)
+    except:
+        pass
