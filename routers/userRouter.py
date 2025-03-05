@@ -110,6 +110,9 @@ async def usernatijalar(msg: Message):
     # agar bazada bo'lsa uni ekranga chiqaramiz
     pdf = await createPdfForUserNatija(testlar)
     await msg.answer_document(FSInputFile(pdf), caption="Sizning testlar natijalaringiz")
-    os.remove(pdf)
+    try: 
+        os.remove(pdf)
+    except: 
+        pass
     # await msg.answer(f"Siz jami {len(testlar)} ta testda ishtirok etgansiz.\n{" ".join(text)}")
     # agar bo'lmasa siz hali hech bir testda qatnamashmadingiz
